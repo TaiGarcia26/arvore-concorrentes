@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Árvore de Concorrentes KOPP</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/treegraph.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <style>
+    * {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .highcharts-figure {
+      margin: 0 auto;
+      max-width: 900px;
+      min-width: 360px;
+    }
+    #container {
+      height: 1200px;
+    }
+  </style>
+</head>
+<body>
+  <figure class="highcharts-figure">
+    <div id="container"></div>
+  </figure>
+
+  <script>
+    Highcharts.chart('container', {
+      chart: {
+        spacingBottom: 30,
+        marginRight: 120,
+        height: 1200,
+      },
+      title: {
+        text: 'Árvore de Concorrentes KOPP',
+      },
+      series: [{
+        type: 'treegraph',
+        keys: ['parent', 'id'],
+        data: [
+          [null, 'Concorrentes KOPP'],
+          ['Concorrentes KOPP', 'SITRAN'],
+          ['Concorrentes KOPP', 'TALENTETCH'],
+          ['Concorrentes KOPP', 'GCT Gerenciamento e Controle de Trânsito'],
+          ['SITRAN', 'SITRAN-Sócios'],
+          ['SITRAN', 'SITRAN-Empresas com Participação dos Sócios'],
+          ['SITRAN-Sócios', 'Ana C. Gonçalves Tomé Leonel'],
+          ['SITRAN-Sócios', 'João A. Gonçalves Tomé'],
+          ['SITRAN-Sócios', 'Amália Darcy Gonçalves Tomé'],
+          ['SITRAN-Sócios', 'Simone Gonçalves Tomé'],
+          ['SITRAN-Sócios', 'Geraldo Magela Terra'],
+          ['SITRAN-Empresas com Participação dos Sócios', 'SITRAN Sinalização de Trânsito Industrial LTDA.'],
+          ['SITRAN Sinalização de Trânsito Industrial LTDA.', 'CNPJ 16.502.551/0001-93'],
+          ['SITRAN Sinalização de Trânsito Industrial LTDA.', 'CNPJ 16.502.551/0003-55'],
+          ['SITRAN Sinalização de Trânsito Industrial LTDA.', 'CNPJ 16.502.551/0009-40'],
+          ['SITRAN Sinalização de Trânsito Industrial LTDA.', 'CNPJ 16.502.551/0012-46'],
+          ['SITRAN Sinalização de Trânsito Industrial LTDA.', 'CNPJ 16.502.551/0018-31'],
+          ['SITRAN Sinalização de Trânsito Industrial LTDA.', 'CNPJ 16.502.551/0024-80'],
+          ['SITRAN Sinalização de Trânsito Industrial LTDA.', 'CNPJ 16.502.551/0025-60'],
+          ['SITRAN Sinalização de Trânsito Industrial LTDA.', 'CNPJ 16.502.551/0026-41'],
+          ['Geraldo Magela Terra', 'Consórcio 5A (11.414.504/0001-74)'],
+          ['Consórcio 5A (11.414.504/0001-74)', 'Cap Construtora Ltda'],
+          ['Consórcio 5A (11.414.504/0001-74)', 'Meng Engenharia Comércio e Indústria Ltda'],
+          ['Consórcio 5A (11.414.504/0001-74)', 'Planex Engenharia Ltda'],
+          ['Consórcio 5A (11.414.504/0001-74)', 'Sigma Engenharia Indústria e Comércio Ltda'],
+          ['Consórcio 5A (11.414.504/0001-74)', 'Sinape Sinalização Viária Ltda'],
+          ['GCT Gerenciamento e Controle de Trânsito', 'Consórcio Trânsito Seguro'],
+          ['Consórcio Trânsito Seguro', 'SITRAN Sinalização de Trânsito Industrial Ltda'],
+          ['Consórcio Trânsito Seguro', 'Geraldo Magela Terra'],
+          ['Consórcio Trânsito Seguro', 'Pedro de Freitas Fenelon'],
+          ['Consórcio Trânsito Seguro', 'André Rocha Baeta']
+        ],
+        marker: {
+          symbol: 'circle',
+          radius: 6,
+          fillColor: '#fff',
+          lineWidth: 3,
+          lineColor: '#000'
+        },
+        dataLabels: {
+          align: 'left',
+          pointFormat: '{point.id}',
+          style: {
+            color: '#000',
+            textOutline: 'none',
+            whiteSpace: 'nowrap',
+          },
+          backgroundColor: 'rgba(255,255,255,0)',
+          x: 24,
+          crop: false,
+          overflow: 'none',
+        },
+        levels: [
+          { level: 1, levelIsConstant: false },
+          { level: 2, colorByPoint: true },
+          {
+            level: 3,
+            colorVariation: {
+              key: 'brightness',
+              to: -0.5
+            }
+          },
+          {
+            level: 4,
+            colorVariation: {
+              key: 'brightness',
+              to: 0.5
+            }
+          },
+          {
+            level: 6,
+            dataLabels: { x: 10 },
+            marker: { radius: 4 }
+          }
+        ]
+      }]
+    });
+  </script>
+</body>
+</html>
